@@ -1,7 +1,7 @@
 - name: torch.solve
   deprecate_pr: https://github.com/pytorch/pytorch/pull/57741
   remove_pr: https://github.com/pytorch/pytorch/pull/70986
-  reference: https://github.com/pytorch-labs/torchfix#torchsolve
+  reference: https://github.com/meta-pytorch/torchfix#torchsolve
 
 - name: torch.qr
   deprecate_pr: https://github.com/pytorch/pytorch/pull/57745
@@ -71,7 +71,7 @@
 - name: torch.nn.utils.weight_norm
   deprecate_pr: https://github.com/pytorch/pytorch/pull/103001
   remove_pr:
-  reference: https://github.com/pytorch-labs/torchfix#torchnnutilsweight_norm
+  reference: https://github.com/meta-pytorch/torchfix#torchnnutilsweight_norm
 
 - name: torch.utils._pytree._register_pytree_node
   deprecate_pr: https://github.com/pytorch/pytorch/pull/112111
@@ -81,7 +81,7 @@
 - name: torch.backends.cuda.sdp_kernel
   deprecate_pr: https://github.com/pytorch/pytorch/pull/114689
   remove_pr:
-  reference: https://github.com/pytorch-labs/torchfix#torchbackendscudasdp_kernel
+  reference: https://github.com/meta-pytorch/torchfix#torchbackendscudasdp_kernel
 
 - name: torch.cuda.amp.autocast
   deprecate_pr: TBA
