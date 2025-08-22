@@ -31,8 +31,8 @@ dev = [
 ]
 
 [project.urls]
-Repository = "https://github.com/pytorch-labs/torchfix"
-"Bug Tracker" = "https://github.com/pytorch-labs/torchfix/issues"
+Repository = "https://github.com/meta-pytorch/torchfix"
+"Bug Tracker" = "https://github.com/meta-pytorch/torchfix/issues"
 
 [project.scripts]
 torchfix = "torchfix.__main__:main"
