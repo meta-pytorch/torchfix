@@ -70,6 +70,12 @@ def _parse_args() -> argparse.Namespace:
         type=str,
         default=None,
     )
+    parser.add_argument(
+        "--disable",
+        help="Comma-separated list of rules to disable. Defaults to None.",
+        type=str,
+        default=None,
+    )
     parser.add_argument("--version", action="version", version=f"{TorchFixVersion}")
 
     # XXX TODO: Get rid of this!
@@ -101,7 +107,15 @@ def main() -> None:
     if not torch_files:
         return
     config = TorchCodemodConfig()
-    config.select = list(process_error_code_str(args.select))
+    selected_rules = process_error_code_str(args.select, True)
+    if args.disable is not None:
+        if args.disable == "ALL":
+            print("No rule to apply", file=sys.stderr)
+            sys.exit(1)
+        disabled_rules = process_error_code_str(args.disable, False)
+        selected_rules = set(selected_rules) - set(disabled_rules)
+
+    config.select = list(selected_rules)
     command_instance = TorchCodemod(codemod.CodemodContext(), config)
     DIFF_CONTEXT = 5
     try:
