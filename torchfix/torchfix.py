@@ -95,12 +95,14 @@ def get_visitors_with_error_codes(error_codes):
     return [construct_visitor(cls) for cls in visitor_classes]
 
 
-def process_error_code_str(code_str):
+def process_error_code_str(code_str, enabled = True):
     # Allow duplicates in the input string, e.g. --select ALL,TOR0,TOR001.
     # We deduplicate them here.
 
     # Default when --select is not provided.
     if code_str is None:
+        if not enabled:
+            return set()
         exclude_set = expand_error_codes(tuple(DISABLED_BY_DEFAULT))
         return set(GET_ALL_ERROR_CODES()) - exclude_set
 
