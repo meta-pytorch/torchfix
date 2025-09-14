@@ -6,6 +6,7 @@ from .misc import (
     TorchLogsumexpVisitor,
     TorchReentrantCheckpointVisitor,
     TorchRequireGradVisitor,
+    TorchRsqrtVisitor,
 )
 from .nonpublic import TorchNonPublicAliasVisitor
 from .performance import (
@@ -30,6 +31,7 @@ __all__ = [
     "TorchScopedLibraryVisitor",
     "TorchSynchronizedDataLoaderVisitor",
     "TorchUnsafeLoadVisitor",
+    "TorchRsqrtVisitor",
     "TorchVisionDeprecatedPretrainedVisitor",
     "TorchVisionDeprecatedToTensorVisitor",
     "TorchVisionSingletonImportVisitor",

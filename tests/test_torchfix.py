@@ -48,6 +48,7 @@ def pytest_generate_tests(metafunc):
                     "TOR106",
                     "TOR107",
                     "TOR108",
+                    "TOR109",
                 },
             ),
             (None, set(GET_ALL_ERROR_CODES()) - exclude_set),
