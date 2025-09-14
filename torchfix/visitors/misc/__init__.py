@@ -210,7 +210,7 @@ class TorchRsqrtVisitor(TorchVisitor):
     ERRORS = [
         TorchError(
             "TOR109",
-            ("Consider using `a*torch.rsqrt(b)` instead of `a/torch.sqrt(b)`, which is faster."),
+            ("Consider faster `a*torch.rsqrt(b)` instead of `a/torch.sqrt(b)`."),
         )
     ]
 
