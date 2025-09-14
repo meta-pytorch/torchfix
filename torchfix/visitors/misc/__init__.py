@@ -184,7 +184,6 @@ class TorchLogsumexpVisitor(TorchVisitor):
                         )
                         == "torch.exp"
                     ):
-
                         # if `dim` is not provided or None for sum, skip:
                         # https://github.com/pytorch/pytorch/issues/144339
                         dim_arg = self.get_specific_arg(
@@ -201,3 +200,29 @@ class TorchLogsumexpVisitor(TorchVisitor):
                                     message=self.ERRORS[0].message(),
                                     replacement=None,
                                 )
+
+
+class TorchRsqrtVisitor(TorchVisitor):
+    """
+    Suggest using `a*torch.rsqrt(b)` instead of `a/torch.sqrt(b)`.
+    """
+
+    ERRORS = [
+        TorchError(
+            "TOR109",
+            ("Consider faster `a*torch.rsqrt(b)` instead of `a/torch.sqrt(b)`."),
+        )
+    ]
+
+    def visit_BinaryOperation(self, node):
+        if m.matches(
+            node,
+            m.BinaryOperation(operator=m.Divide(), right=m.Call()),
+        ):
+            if self.get_qualified_name_for_call(node.right) == "torch.sqrt":
+                self.add_violation(
+                    node,
+                    error_code=self.ERRORS[0].error_code,
+                    message=self.ERRORS[0].message(),
+                    replacement=None,
+                )

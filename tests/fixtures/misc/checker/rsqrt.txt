@@ -1,0 +1,3 @@
+5:5 TOR109 Consider faster `a*torch.rsqrt(b)` instead of `a/torch.sqrt(b)`.
+6:5 TOR109 Consider faster `a*torch.rsqrt(b)` instead of `a/torch.sqrt(b)`.
+7:5 TOR109 Consider faster `a*torch.rsqrt(b)` instead of `a/torch.sqrt(b)`.
